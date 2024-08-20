@@ -1,0 +1,11 @@
+#work h2::before {
+    content: ""; /* Add content before heading */
+    position: absolute; /* Position it absolutely */
+    left: 50%; /* Center horizontally */
+    bottom: -10px; /* Position below the heading */
+    transform: translateX(-50%); /* Centering adjustment */
+    width: 60px; /* Width of the decorative element */
+    height: 5px; /* Height of the decorative element */
+    background: #fff; /* Color of the decorative element */
+    border-radius: 5px; /* Rounded corners for the decorative element */
+}

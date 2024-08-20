@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sunil Chowdary Guntupalli, a Software Engineer specializing in Cloud Management, Data Analysis, and Full-Stack Development.">
+    <meta name="keywords" content="Sunil Chowdary Guntupalli, Software Engineer, Cloud Management, Data Analysis, Full-Stack Development, Portfolio">
+    <meta name="author" content="Sunil Chowdary Guntupalli">
+    <title>Sunil Chowdary Guntupalli - Portfolio</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background-color: #000;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            padding: 0.25in 0;
+            text-align: center;
+            background: transparent;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        header,
+        nav {
+            color: #fff;
+        }
+
+        /* Navigation link styles */
+        nav a {
+            display: inline-block;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin: 0 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            background-color: #000;
+            border: 2px solid #000;
+        }
+
+        nav a.active {
+            background-color: rgb(226, 226, 226);
+            color: #000;
+            border-color: rgb(226, 226, 226);
+        }
+
+        nav a:hover {
+            color: #000;
+            background-color: rgb(226, 226, 226);
+            border-color: rgb(226, 226, 226);
+        }
+
+        header h1,
+        header h2,
+        header h3,
+        nav a {
+            color: white;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            margin: 0 auto 10px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .home-section {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            max-width: 1000px;
+            margin: -50px auto 0 auto;
+            border-radius: 15px;
+        }
+
+        .home-content {
+            max-width: 600px;
+            text-align: left;
+            margin-right: 20px;
+        }
+
+        .home-content h1 {
+            margin: 0;
+            font-size: 1.6em;
+            font-weight: normal;
+        }
+
+        .home-content p {
+            font-size: 0.96em;
+            margin: 10px 0;
+        }
+
+        /* Button styles */
+        .resume-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 1em;
+            color: #000;
+            background-color: #d2d2d2;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            /* border: 2px solid #d2d2d2; */
+        }
+
+        .resume-button:hover {
+            background-color: #000;
+            color: #d2d2d2;
+            /* border-colsor: #000; */
+        }
+
+        .home-image {
+            max-width: 380px;
+            width: 100%;
+            border-radius: 50px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+            background-color: rgb(226, 226, 226);
+        }
+
+        .home-image.visible {
+            opacity: 1;
+        }
+
+        h2,
+        h3 {
+            text-align: center;
+            color: white;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+        }
+
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button Styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: #000;
+        }
+
+        /* About Section Styles */
+        #about {
+            background-color: rgba(0, 0, 0, 0); /* 50% black background */
+            border-radius: 15px; /* Curved borders */
+            /* border: 1px solid rgba(255, 255, 255, 0.3); Light border */
+        }
+
+        /* Skills Section Heading */
+#about h3 {
+    font-size: 1.6em; /* Adjusting the font size to match 'About Me' heading */
+    text-align: center; /* Align heading to the left */
+    margin-bottom: 10px;
+}
+
+/* Skills Section Content */
+.skills-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skills-content p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Work Experience Section Styling */
+.work-experience {
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px; /* Add margin to push it down from the navigation bar */
+    color: #fff;
+}
+
+.work-experience h3 {
+    font-size: 1.5em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.work-experience h3 img {
+    margin-right: 10px;
+}
+
+.work-experience p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.work-experience p em {
+    color: #ccc; /* Light grey color for date */
+}
+
+.work-experience ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Remove bullets */
+}
+
+/* Work Experience Section Heading Styling */
+#work h2 {
+    font-size: 1.5em; /* Adjust font size */
+    text-align: center; /* Center-align the heading */
+    color: #fff; /* White color for contrast */
+    margin: 20px 0; /* Margin above and below */
+    padding: 10px; /* Padding around the heading */
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(0, 0, 0, 0); /* Semi-transparent background */
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); Shadow for depth */
+    position: relative; /* Positioning for pseudo-elements */
+}
+
+
+/* Remove bullets and margins if using list-style in HTML */
+.work-experience ul li {
+    margin: 10px 0;
+}
+
+/* Education Section Styling */
+#education {
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#education h2 {
+    font-size: 1.5em; /* Font size for h2 heading */
+    text-align: center; /* Center-align the heading */
+    color: #fff; /* White color for contrast */
+    margin: 20px 0; /* Margin above and below */
+    padding: 10px; /* Padding around the heading */
+    border-radius: 10px; /* Rounded corners */
+    /* background: rgba(0, 0, 0, 0); Semi-transparent background */
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0); Shadow for depth */
+}
+
+.education-entry {
+    margin-bottom: 20px; /* Space between entries */
+}
+
+.education-entry h3 {
+    font-size: 1.5em; /* Font size for subheadings */
+    margin: 0;
+    color: #fff; /* White color for contrast */
+}
+
+.education-entry p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+.education-entry p em {
+    color: #ccc; /* Light grey color for dates */
+}
+
+/* Projects Section Styling */
+#projects {
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#projects h2 {
+    font-size: 1.5em; /* Font size for h2 heading */
+    text-align: center; /* Center-align the heading */
+    color: #fff; /* White color for contrast */
+    margin: 20px 0; /* Margin above and below */
+    padding: 10px; /* Padding around the heading */
+    border-radius: 10px; /* Rounded corners */
+    /* background: rgba(0, 0, 0, 0); Semi-transparent background */
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0); Shadow for depth */
+}
+
+.project-entry {
+    margin-bottom: 15px; /* Space between entries */
+}
+
+.project-button {
+    background-color: #444; /* Dark background for buttons */
+    border: none;
+    color: #fff; /* White text */
+    padding: 8px 15px; /* Adjusted padding for smaller buttons */
+    text-align: left;
+    display: block;
+    width: fit-content; /* Adjust width to fit the text */
+    font-size: 1em; /* Font size for readability */
+    border-radius: 8px; /* Rounded corners for buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px; /* Space between buttons */
+}
+
+.project-button:hover {
+    background-color: #666; /* Lighter background on hover */
+}
+
+.project-details {
+    display: none; /* Hide details by default */
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background */
+}
+
+.project-details p {
+    margin: 5px 0;
+}
+
+.project-details p strong {
+    color: #ccc; /* Light grey color for emphasis */
+}
+
+/* Contact Section Styling */
+#contact {
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    margin: 0 auto; /* Center the section horizontally */
+    width: 50%; /* Reduce width to 50% */
+    max-width: 600px; /* Optional: set a max-width for better readability on large screens */
+    color: #fff;
+    text-align: center; /* Center-align text for contact information */
+}
+
+.contact-info {
+    margin-top: 20px; /* Margin to separate from main text */
+}
+
+.contact-info p {
+    font-size: 1em;
+    margin: 10px 0;
+    display: flex;
+    align-items: center; /* Center-align icons with text */
+}
+
+.contact-info .contact-icon {
+    width: 20px; /* Set the size of the logos */
+    height: 20px;
+    margin-right: 10px; /* Space between icon and text */
+    border-radius: 5px; /* Curved edges with 8px radius */
+    object-fit: cover; /* Ensure logos fit within the given dimensions */
+    background-color: white;
+}
+
+.contact-info a {
+    color: #d2d2d2; /* Light color for links */
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+
+
+        /* Responsive Design Enhancements */
+        @media only screen and (max-width: 768px) {
+            .home-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .home-content {
+                margin-right: 0;
+            }
+
+            .home-image {
+                margin-top: 20px;
+                max-width: 100%;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 8px 15px;
+            }
+
+            .resume-button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+            #contact {
+        width: 90%; /* Increase width for mobile view */
+        padding: 15px;
+    }
+
+    .contact-info p {
+        font-size: 0.9em; /* Slightly smaller font size for mobile */
+    }
+
+            #work h2 {
+        font-size: 1.4em; /* Smaller font size for smaller screens */
+    }
+    #education h2 {
+        font-size: 1.4em; /* Slightly smaller font size on smaller screens */
+    }
+    
+    .education-entry h3 {
+        font-size: 1.2em; /* Slightly smaller font size for subheadings */
+    }
+
+    #projects h2 {
+        font-size: 1.4em; /* Slightly smaller font size on smaller screens */
+    }
+    
+    .project-button {
+        font-size: 0.8em; /* Slightly smaller font size for buttons */
+        padding: 6px 12px; /* Adjusted padding for smaller buttons */
+    }
+        }
+
+        @media only screen and (max-width: 480px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .resume-button {
+                font-size: 0.8em;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#" data-section="home" class="active" aria-label="Navigate to Home">Home</a>
+            <a href="#" data-section="about" aria-label="Navigate to About">About</a>
+            <a href="#" data-section="work" aria-label="Navigate to Work Experience">Work Experience</a>
+            <a href="#" data-section="education" aria-label="Navigate to Education">Education</a>
+            <a href="#" data-section="projects" aria-label="Navigate to Projects">Projects</a>
+            <a href="#" data-section="contact" aria-label="Navigate to Contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="home" class="section active" role="region" aria-labelledby="home">
+            <div class="home-section">
+                <div class="home-content">
+                    <p>Hello</p>
+                    <h1><strong>I'm Sunil Chowdary Guntupalli</strong></h1>
+                    <p><font size="-1">Software Engineer | Cloud Management | Data Analysis | Full-Stack Development</font></p>
+                    <a href="resume.pdf" class="resume-button" download aria-label="Download Resume">Download Resume</a>
+                </div>
+                <img src="photo.png" alt="Portrait of Sunil Chowdary Guntupalli" class="home-image visible" loading="lazy">
+            </div>
+        </section>
+
+        <section id="about" class="section" role="region" aria-labelledby="about">
+            <h2>About Me</h2>
+            <p>Hi, I'm <strong>Sunil Chowdary Guntupalli</strong>, a versatile professional with expertise as a <strong>Data Analyst</strong>, <strong>Cloud Engineer</strong>, and <strong>Full Stack Developer</strong>. I am currently pursuing a Master’s degree in Computer Science at the <strong>University of Cincinnati</strong>, where I am expanding my knowledge in cutting-edge technologies and software engineering principles.</p>
+
+        <p>My professional experience includes significant roles at <strong>Motorola Solutions</strong> and <strong>Deloitte</strong>. At Motorola Solutions, I contributed as a <strong>Data Analyst</strong> and <strong>Full Stack Developer</strong>, focusing on optimizing data pipelines and building responsive web applications. At Deloitte, I served as a <strong>Cloud Engineer</strong>, where I was involved in deploying and managing cloud infrastructure, enhancing the scalability and security of client applications.</p>
+        <h3>Skills</h3>
+            <div class="skills-content">
+                <p><strong>Programming Languages:</strong> Advanced in Python, Java, JavaScript, C++, C, PHP</p>
+                <p><strong>Data Analysis & Visualization:</strong> Statistical Analysis, Predictive Analytics, Data Visualization (Tableau, Power BI), Data Mining, Dashboards & Reporting, Matplotlib</p>
+                <p><strong>Data Management:</strong> SQL, MySQL, MongoDB, CouchDB</p>
+                <p><strong>Full-Stack Development:</strong> Django, Vue.js, Node.js, REST APIs, Bootstrap, HTML, CSS</p>
+                <p><strong>Cloud Computing:</strong> Azure, AWS, Google Cloud Platform</p>
+                <p><strong>DevOps & CI/CD:</strong> Docker, Kubernetes, Agile Methodologies, Continuous Integration and Development</p>
+                <p><strong>Tools & Technologies:</strong> Elasticsearch, Postman, Jenkins, Jupyter Notebooks, GitHub, Robotic Process Automation, SailPoint, ServiceNow, XAMPP</p>
+            </div>
+        </section>
+
+        <section id="work" class="section" role="region" aria-labelledby="work">
+            <h2>Work Experience</h2>
+        
+            <div class="work-experience">
+                <h3><img src="motorola-logo.jpg" alt="Motorola Solutions Logo" style="height: 24px; vertical-align: middle;"> Software Engineer | <strong>Motorola Solutions</strong></h3>
+                <p><em>June 2021 – July 2023</em></p>
+                <p>At <strong>Motorola Solutions</strong>, I enhanced a deployment platform for over 100 clients and partners using <strong>Azure Management Services</strong>. This optimization of project provisioning and resource allocation resulted in more than $1.2 million in cost savings and a 25% improvement in operational efficiency.</p>
+                <p>I led the transition of over 1,000 data sets from Excel to <strong>MySQL</strong>, <strong>CouchDB</strong>, and <strong>Access DB</strong>. This migration improved data handling efficiency by 90%, streamlined data management processes, and increased data accessibility and reliability.</p>
+                <p>Furthermore, I designed and integrated advanced data visualization and analysis features using <strong>Vue.js</strong>, <strong>Angular</strong>, and <strong>Node.js</strong>. This development enhanced user experience and application performance by 30%, providing actionable insights through interactive dashboards and real-time updates.</p>
+                <p>Utilizing <strong>Azure</strong>, <strong>Docker</strong>, and <strong>Kubernetes</strong>, I managed cloud operations for more than 50 projects. This effort achieved seamless deployment, scalable solutions, and enhanced system reliability, contributing to a 40% increase in efficient resource management.</p>
+                <p>Additionally, I applied data analysis to automate processes across 500+ projects. This automation reduced manual efforts by 60%, improved workflow efficiency, and increased overall productivity.</p>
+            </div>
+        
+            <div class="work-experience">
+                <h3><img src="deloitte-logo.jpg" alt="Deloitte Logo" style="height: 24px; vertical-align: middle;"> Technology Intern | <strong>Deloitte</strong></h3>
+                <p><em>Jan. 2021 – April 2021</em></p>
+                <p>During my time at <strong>Deloitte</strong>, I leveraged <strong>SailPoint IdentityIQ</strong> to manage user identities for over 200 users. This approach improved data security and streamlined user provisioning and de-provisioning processes, resulting in a 20% increase in compliance and system efficiency.</p>
+                <p>I conducted detailed data analysis and generated weekly performance reports for more than 10 projects. These reports provided actionable insights that identified trends and supported data-driven decision-making, enhancing operational performance by 15%.</p>
+                <p>Additionally, I implemented <strong>Java</strong> solutions and utilized <strong>XML</strong> within SailPoint to automate over 50 identity management processes. This automation reduced manual intervention and enhanced system functionality, leading to a 25% increase in operational effectiveness.</p>
+                <p>I also utilized <strong>Git</strong> and <strong>GitLab</strong> for version control and project tracking. This ensured accurate progress and effective collaboration on more than 5 development tasks, facilitating smooth project execution, timely updates, and seamless team integration.</p>
+            </div>
+        
+            <div class="work-experience">
+                <h3><img src="madcrayons-logo.png" alt="Mad Crayons Logo" style="height: 24px; vertical-align: middle;"> Web Development Intern | <strong>Mad Crayons</strong></h3>
+                <p><em>June 2020 – July 2020</em></p>
+                <p>At <strong>Mad Crayons</strong>, I contributed to the development of the company website using <strong>PHP</strong> and <strong>Laravel</strong>. This work significantly improved site functionality and loading speeds by 50% through optimized code, efficient database management, and streamlined server configurations.</p>
+                <p>I managed user data with <strong>MySQL</strong> and utilized <strong>XAMPP</strong> for local development. This approach led to a 30% improvement in data handling, site stability, and overall performance, resulting in enhanced user satisfaction based on comprehensive data analysis.</p>
+            </div>
+        </section>
+        
+
+        <section id="education" class="section" role="region" aria-labelledby="education">
+            <h2>Education</h2>
+        
+            <div class="education-entry">
+                <h3>Master of Engineering in Computer Science</h3>
+                <p><strong>University of Cincinnati</strong></p>
+                <p><em>Aug. 2023 – Expected Dec. 2024</em></p>
+                <p>GPA: 3.92</p>
+                <p>Relevant Coursework: Intelligent Data Analysis, Cloud Computing, Operating Systems, Advanced Algorithms</p>
+            </div>
+        
+            <div class="education-entry">
+                <h3>Bachelor of Technology in Computer Science</h3>
+                <p><strong>Koneru Lakshmaiah Education Foundation</strong></p>
+                <p><em>July 2018 – May 2022</em></p>
+                <p>GPA: 3.74</p>
+                <p>Relevant Coursework: Algorithms, Data Science, Software Development, Programming, Artificial Intelligence</p>
+            </div>
+        </section>
+        
+
+        <section id="projects" class="section" role="region" aria-labelledby="projects">
+            <h2>Projects</h2>
+            <center>
+            <div class="project-entry">
+                <button class="project-button" onclick="toggleProject('project1')">AWS EC2 Registration System</button>
+                <div id="project1" class="project-details">
+                    <p><strong>Description:</strong> Deployed a scalable web server solution on AWS EC2 for a secure user registration system, featuring interactive functionalities and data storage.</p>
+                </div>
+            </div>
+            <div class="project-entry">
+                <button class="project-button" onclick="toggleProject('project2')">Docker Data Processor Project</button>
+                <div id="project2" class="project-details">
+                    <p><strong>Description:</strong> Utilized Python within a Docker container to process and analyze text files, providing detailed word count statistics and data extraction capabilities.</p>
+                </div>
+            </div>
+        
+            <div class="project-entry">
+                <button class="project-button" onclick="toggleProject('project3')">Google Dialogflow Chatbot</button>
+                <div id="project3" class="project-details">
+                    <p><strong>Description:</strong> Developed a chatbot on Google Cloud Platform (GCP) using Dialogflow to handle college inquiries, offering an interactive and responsive system for student engagement.</p>
+                </div>
+            </div>
+        
+            <div class="project-entry">
+                <button class="project-button" onclick="toggleProject('project4')">Big Data Weather Analysis</button>
+                <div id="project4" class="project-details">
+                    <p><strong>Description:</strong> Analyzed large-scale weather datasets with PySpark on Anaconda and Jupyter Notebook, identifying significant weather patterns and statistical trends.</p>
+                </div>
+            </div>
+        
+            <div class="project-entry">
+                <button class="project-button" onclick="toggleProject('project5')">Exploratory Data Analysis with Databricks</button>
+                <div id="project5" class="project-details">
+                    <p><strong>Description:</strong> Conducted comprehensive data analysis and visualization on various datasets using Databricks Community Edition, generating actionable insights.</p>
+                </div>
+            </div>
+        
+            <div class="project-entry">
+                <button class="project-button" onclick="toggleProject('project6')">Movie Ticket Booking System</button>
+                <div id="project6" class="project-details">
+                    <p><strong>Description:</strong> Designed a C-based platform for managing movie bookings, including ticket selection, reservation, and purchase functionalities.</p>
+                </div>
+            </div>
+        
+            <div class="project-entry">
+                <button class="project-button" onclick="toggleProject('project7')">Tic-Tac-Toe Game</button>
+                <div id="project7" class="project-details">
+                    <p><strong>Description:</strong> Developed an interactive Tic-Tac-Toe game in Python, featuring advanced game logic and user interaction capabilities.</p>
+                </div>
+            </div>
+        
+            <div class="project-entry">
+                <button class="project-button" onclick="toggleProject('project8')">Certificate Management System</button>
+                <div id="project8" class="project-details">
+                    <p><strong>Description:</strong> Created a Django-based system for efficient management of certificates, including issuance, verification, and status tracking functionalities.</p>
+                </div>
+            </div>
+        </center>
+        </section>
+        
+
+        <!-- Contact Section -->
+        <section id="contact" class="section" role="region" aria-labelledby="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <p>
+                    <img src="phone.png" alt="Phone Logo" class="contact-icon"> <a href="tel:+15133990202">513-399-0202</a>
+                </p>
+                <p>
+                    <img src="email.png" alt="Email Logo" class="contact-icon"> <a href="mailto:sunilchowdaryguntupalli@gmail.com">sunilchowdaryguntupalli@gmail.com</a>
+                </p>
+                <p>
+                    <img src="linkedin.png" alt="LinkedIn Logo" class="contact-icon"> <a href="https://www.linkedin.com/in/guntupallisunilchowdary" target="_blank">LinkedIn</a>
+                </p>
+                <p>
+                    <img src="github.png" alt="GitHub Logo" class="contact-icon"> <a href="https://github.com/gsunilchowdary" target="_blank">GitHub</a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="back-to-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</div>
+
+    <script defer>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('nav a').forEach(navLink => navLink.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+                document.getElementById(this.getAttribute('data-section')).classList.add('active');
+            });
+        });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show "Back to Top" button when scrolling down
+        window.addEventListener('scroll', function () {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        function toggleProject(projectId) {
+        var projectDetails = document.getElementById(projectId);
+        if (projectDetails.style.display === "block") {
+            projectDetails.style.display = "none";
+        } else {
+            // Hide all project details first
+            document.querySelectorAll('.project-details').forEach(detail => detail.style.display = "none");
+            // Show the selected project details
+            projectDetails.style.display = "block";
+        }
+    }
+    </script>
+</body>
+
+</html>
